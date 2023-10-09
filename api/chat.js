@@ -14,7 +14,7 @@ module.exports = async (req, res) => {
       data: req
     })
     // console.log('res data',response.data);
-    console.log('echostr',er);
+    // console.log('echostr',er);
     // 处理后端接口的响应，并将其返回给前端
     if(er) {
       res.status(200).end(er);
@@ -23,7 +23,7 @@ module.exports = async (req, res) => {
     }
   } catch (error) {
     // 处理转发请求失败的情况
-    console.error(error);
+    // console.error(error);
     res.status(500).json({ error: '转发请求失败' });
   }
 };
