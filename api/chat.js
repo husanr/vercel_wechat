@@ -3,11 +3,6 @@ const xml2js = require('xml2js');
 const crypto = require('crypto')
 
 module.exports = async (req, res) => {
-  // const { signature, timestamp, nonce, echostr } = req.query;
-  const TOKEN = 'hello123';
-  // console.log(req);
-  // console.log(req.body);
-  // console.log(req.xml);
   const { signature, timestamp, nonce, echostr } = req.query;
   const token = 'hello123';
 
@@ -41,28 +36,6 @@ module.exports = async (req, res) => {
       });
     });
   }
-
-  // // 如果是首次验证，则返回 echostr 给微信服务器
-  // // if (echostr) {
-  // //   res.send(echostr) ;
-  // // }
-  // // 处理接收到的消息
-  // // const payload = req.body.xml;
-  // // 文本消息
-  // if (payload.msgtype[0] === 'text') {
-  //   // gpt暂不可用
-  //   res.send(toXML(payload, 'ChatGPT功能暂不可用，请等待后续通知！谢谢！'));
-  // }
-
-  // // 公众号事件
-  // if (payload.msgtype[0] === 'event') {
-  //   // 公众号订阅
-  //   if (payload.event[0] === 'subscribe') {
-  //     res.send(toXML(payload, HELP_MESSAGE));
-  //   }
-  // }
-
-  // return 'success'
 };
 
 // 返回组装 xml
