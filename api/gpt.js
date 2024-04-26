@@ -8,7 +8,7 @@ module.exports = async (req, res) => {
   try {
     // const response = await axios.post('https://tqs3ft.laf.dev/test', req );
     const response = await axios({
-      url: "https://cpq9b7mect.hk.aircode.run/hello",
+      url: "https://cpq9b7mect.hk.aircode.run/kefu",
       method: req.method,
       params: req.query,
       data: req
