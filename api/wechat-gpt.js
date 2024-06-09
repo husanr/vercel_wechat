@@ -59,13 +59,13 @@ module.exports = async (req, res) => {
           // console.log('answer', answer);
           // 修复请求响应超时问题：如果 5 秒内 AI 没有回复，则返回等待消息
           const { error, answer } = await Promise.race([
-            utils.getOpenAIReply(messages),
+            utils.getOpenAIReply(messages, payload),
             utils.sleep(4500.0).then(() => ({ answer: WAIT_MESSAGE})),
           ]);
-          if (answer !== WAIT_MESSAGE) {
-            // 存储回答到KV数据库
-            await kv.set(`reply:${payload.FromUserName[0]}`, answer);
-          }
+          // if (answer !== WAIT_MESSAGE) {
+          //   // 存储回答到KV数据库
+          //   await kv.set(`reply:${payload.FromUserName[0]}`, answer);
+          // }
   
           console.log('err',error);
           console.log('answer', answer);
